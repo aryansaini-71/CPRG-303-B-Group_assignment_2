@@ -9,19 +9,26 @@ export default function AppLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "#1DA1F2",
+        tabBarActiveTintColor: "#1DA1F2", 
         tabBarInactiveTintColor: "#6B7280",
         tabBarShowLabel: false,
         headerShown: true,
         headerTitleAlign: "center",
+        tabBarStyle: {
+          backgroundColor: "#fff",
+          borderTopWidth: 0.5,
+          borderTopColor: "#EFF3F4",
+          height: 60,
+          paddingBottom: 5,
+        },
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
           title: "Home",
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="home-outline" size={24} color={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name={focused ? "home" : "home-outline"} size={26} color={color} />
           ),
         }}
       />
@@ -30,8 +37,8 @@ export default function AppLayout() {
         name="search"
         options={{
           title: "Search",
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="search-outline" size={24} color={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name={focused ? "search" : "search-outline"} size={26} color={color} />
           ),
         }}
       />
@@ -40,8 +47,9 @@ export default function AppLayout() {
         name="explore"
         options={{
           title: "Explore",
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="flash-outline" size={24} color={color} />
+          tabBarIcon: ({ color, focused }) => (
+
+            <Ionicons name={focused ? "flash" : "flash-outline"} size={26} color={color} />
           ),
         }}
       />
@@ -50,18 +58,19 @@ export default function AppLayout() {
         name="notifications"
         options={{
           title: "Notifications",
-          tabBarIcon: ({ color }) => (
-            <BellWithBadge color={color} count={notifCount} />
+          tabBarIcon: ({ color, focused }) => (
+            <BellWithBadge color={color} count={notifCount} focused={focused} />
           ),
         }}
       />
 
+
       <Tabs.Screen
-        name="messages"
+        name="message" 
         options={{
           title: "Messages",
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="mail-outline" size={24} color={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name={focused ? "mail" : "mail-outline"} size={26} color={color} />
           ),
         }}
       />
@@ -77,10 +86,10 @@ export default function AppLayout() {
   );
 }
 
-function BellWithBadge({ color, count }: { color: string; count: number }) {
+function BellWithBadge({ color, count, focused }: { color: string; count: number; focused: boolean }) {
   return (
-    <View style={{ width: 26, height: 26 }}>
-      <Ionicons name="notifications-outline" size={24} color={color} />
+    <View style={{ width: 28, height: 28 }}>
+      <Ionicons name={focused ? "notifications" : "notifications-outline"} size={26} color={color} />
       {count > 0 && (
         <View style={styles.badge}>
           <Text style={styles.badgeText}>{count}</Text>
@@ -93,19 +102,20 @@ function BellWithBadge({ color, count }: { color: string; count: number }) {
 const styles = StyleSheet.create({
   badge: {
     position: "absolute",
-    right: -10,
-    top: -6,
-    minWidth: 20,
-    height: 20,
-    borderRadius: 10,
-    paddingHorizontal: 5,
+    right: -6,
+    top: -2,
+    minWidth: 18,
+    height: 18,
+    borderRadius: 9,
     backgroundColor: "#1DA1F2",
     alignItems: "center",
     justifyContent: "center",
+    borderWidth: 1.5,
+    borderColor: "#fff", 
   },
   badgeText: {
     color: "#fff",
-    fontWeight: "900",
-    fontSize: 11,
+    fontWeight: "bold",
+    fontSize: 10,
   },
 });

@@ -1,6 +1,4 @@
-// File: data/mockData.ts
 
-// 1. Categories for Search and Home tabs 
 export const categories = [
   "For You",
   "Trending",
@@ -9,7 +7,6 @@ export const categories = [
   "Entertainment",
 ];
 
-// 2. Data Types (Keeps your code "Clean and Professional") [cite: 53]
 export type NewsItem = {
   id: string;
   title: string;
@@ -24,7 +21,7 @@ export type PostItem = {
   handle: string;
   time: string;
   text: string;
-  image?: any; // Optional image for posts [cite: 47]
+  image?: any;
   comments: string;
   reposts: string;
   likes: string;
@@ -39,7 +36,15 @@ export type NotificationItem = {
   type: 'system' | 'post';
 };
 
-// 3. News Data for the Search Screen 
+export type MessageItem = {
+  id: string;
+  user: string;
+  handle: string;
+  time: string;
+  lastMessage: string;
+};
+
+
 export const todaysNews: NewsItem[] = [
   {
     id: "1",
@@ -64,7 +69,7 @@ export const todaysNews: NewsItem[] = [
   },
 ];
 
-// 4. Post Data for the Home Screen 
+
 export const homePosts: PostItem[] = [
   {
     id: "p1",
@@ -83,7 +88,7 @@ export const homePosts: PostItem[] = [
     handle: "@artexplorer",
     time: "2h",
     text: "A beautiful perspective of a gathering around a fire in a snowy forest.",
-    image: require("../assets/images/post1.jpg"), // Ensure this file exists! [cite: 53]
+    image: require("../assets/images/post1.jpg"), 
     comments: "145",
     reposts: "520",
     likes: "2.3K",
@@ -105,8 +110,8 @@ export const homePosts: PostItem[] = [
     displayName: "Travel Diary",
     handle: "@traveldiary",
     time: "30m",
-    text: "Enjoying the cherry blossoms on this beautiful street! #sakura",
-    image: require("../assets/images/post2.jpg"), // Ensure this file exists! [cite: 53]
+    text: "Enjoying the cherry blossoms! #sakura",
+    image: require("../assets/images/post2.jpg"),
     comments: "210",
     reposts: "98",
     likes: "4.1K",
@@ -114,7 +119,7 @@ export const homePosts: PostItem[] = [
   },
 ];
 
-// 5. Notification Data for the Notifications Screen 
+
 export const notifications: NotificationItem[] = [
   {
     id: "n1",
@@ -132,16 +137,34 @@ export const notifications: NotificationItem[] = [
   },
   {
     id: "n3",
-    user: "Apple Hub",
-    time: "5h",
-    content: "Hey @grok remove the worst phone",
-    type: 'post',
-  },
-  {
-    id: "n4",
     user: "MrBeast",
     time: "9h",
     content: "If you won Beast Games would you rather have $1M or a mystery gift?",
     type: 'post',
+  },
+];
+
+
+export const chatList: MessageItem[] = [
+  {
+    id: "m1",
+    user: "Apple Hub",
+    handle: "@theapplehub",
+    time: "2h",
+    lastMessage: "The new iPhone colors are looking great!",
+  },
+  {
+    id: "m2",
+    user: "Samsung Canada",
+    handle: "@SamsungCanada",
+    time: "5h",
+    lastMessage: "Did you see our latest Galaxy S26 Ultra promo?",
+  },
+  {
+    id: "m3",
+    user: "MrBeast",
+    handle: "@MrBeast",
+    time: "1d",
+    lastMessage: "Check out the new video I just dropped!",
   },
 ];
