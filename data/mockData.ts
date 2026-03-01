@@ -1,6 +1,6 @@
 // File: data/mockData.ts
 
-// 1. Categories for the Search/Explore screen
+// 1. Categories for Search and Home tabs 
 export const categories = [
   "For You",
   "Trending",
@@ -9,7 +9,7 @@ export const categories = [
   "Entertainment",
 ];
 
-// 2. Types for TypeScript (helps prevent errors)
+// 2. Data Types (Keeps your code "Clean and Professional") [cite: 53]
 export type NewsItem = {
   id: string;
   title: string;
@@ -24,14 +24,22 @@ export type PostItem = {
   handle: string;
   time: string;
   text: string;
-  image?: any; // The '?' means the image is optional
+  image?: any; // Optional image for posts [cite: 47]
   comments: string;
   reposts: string;
   likes: string;
   views: string;
 };
 
-// 3. Data for your Notifications/Search screens
+export type NotificationItem = {
+  id: string;
+  user: string;
+  time: string;
+  content: string;
+  type: 'system' | 'post';
+};
+
+// 3. News Data for the Search Screen 
 export const todaysNews: NewsItem[] = [
   {
     id: "1",
@@ -56,7 +64,7 @@ export const todaysNews: NewsItem[] = [
   },
 ];
 
-// 4. Data for your Home Feed (index.tsx)
+// 4. Post Data for the Home Screen 
 export const homePosts: PostItem[] = [
   {
     id: "p1",
@@ -75,8 +83,7 @@ export const homePosts: PostItem[] = [
     handle: "@artexplorer",
     time: "2h",
     text: "A beautiful perspective of a gathering around a fire in a snowy forest.",
-    // Ensure you named the file post1.jpg in assets/images
-    image: require("../assets/images/post1.jpg"), 
+    image: require("../assets/images/post1.jpg"), // Ensure this file exists! [cite: 53]
     comments: "145",
     reposts: "520",
     likes: "2.3K",
@@ -99,11 +106,42 @@ export const homePosts: PostItem[] = [
     handle: "@traveldiary",
     time: "30m",
     text: "Enjoying the cherry blossoms on this beautiful street! #sakura",
-    // Ensure you named the file post2.jpg in assets/images
-    image: require("../assets/images/post2.jpg"),
+    image: require("../assets/images/post2.jpg"), // Ensure this file exists! [cite: 53]
     comments: "210",
     reposts: "98",
     likes: "4.1K",
     views: "1.2M",
+  },
+];
+
+// 5. Notification Data for the Notifications Screen 
+export const notifications: NotificationItem[] = [
+  {
+    id: "n1",
+    user: "Google Gemini",
+    time: "30m",
+    content: "Nano Banana 2 is here. Our latest image model gives you the power of Pro at the speed of Flash.",
+    type: 'system',
+  },
+  {
+    id: "n2",
+    user: "Apple Hub",
+    time: "2h",
+    content: "Apple confirms new products are coming starting on Monday! 🔥 #AppleLaunch",
+    type: 'post',
+  },
+  {
+    id: "n3",
+    user: "Apple Hub",
+    time: "5h",
+    content: "Hey @grok remove the worst phone",
+    type: 'post',
+  },
+  {
+    id: "n4",
+    user: "MrBeast",
+    time: "9h",
+    content: "If you won Beast Games would you rather have $1M or a mystery gift?",
+    type: 'post',
   },
 ];
