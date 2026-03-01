@@ -1,3 +1,6 @@
+// File: data/mockData.ts
+
+// 1. Categories for the Search/Explore screen
 export const categories = [
   "For You",
   "Trending",
@@ -6,6 +9,7 @@ export const categories = [
   "Entertainment",
 ];
 
+// 2. Types for TypeScript (helps prevent errors)
 export type NewsItem = {
   id: string;
   title: string;
@@ -14,6 +18,20 @@ export type NewsItem = {
   posts: string;
 };
 
+export type PostItem = {
+  id: string;
+  displayName: string;
+  handle: string;
+  time: string;
+  text: string;
+  image?: any; // The '?' means the image is optional
+  comments: string;
+  reposts: string;
+  likes: string;
+  views: string;
+};
+
+// 3. Data for your Notifications/Search screens
 export const todaysNews: NewsItem[] = [
   {
     id: "1",
@@ -31,26 +49,14 @@ export const todaysNews: NewsItem[] = [
   },
   {
     id: "3",
-    title:
-      "Doug Ford Awards $1.04 Billion Contract for New Ontario Science Centre",
+    title: "Doug Ford Awards $1.04 Billion Contract for New Ontario Science Centre",
     time: "6 hours ago",
     topic: "News",
     posts: "6.2K posts",
   },
 ];
 
-export type PostItem = {
-  id: string;
-  displayName: string;
-  handle: string;
-  time: string;
-  text: string;
-  comments: string;
-  reposts: string;
-  likes: string;
-  views: string;
-};
-
+// 4. Data for your Home Feed (index.tsx)
 export const homePosts: PostItem[] = [
   {
     id: "p1",
@@ -65,6 +71,19 @@ export const homePosts: PostItem[] = [
   },
   {
     id: "p2",
+    displayName: "Art Explorer",
+    handle: "@artexplorer",
+    time: "2h",
+    text: "A beautiful perspective of a gathering around a fire in a snowy forest.",
+    // Ensure you named the file post1.jpg in assets/images
+    image: require("../assets/images/post1.jpg"), 
+    comments: "145",
+    reposts: "520",
+    likes: "2.3K",
+    views: "500K",
+  },
+  {
+    id: "p3",
     displayName: "Kaho Wong",
     handle: "@kahowong93",
     time: "9h",
@@ -73,5 +92,18 @@ export const homePosts: PostItem[] = [
     reposts: "41",
     likes: "1.9K",
     views: "412K",
+  },
+  {
+    id: "p4",
+    displayName: "Travel Diary",
+    handle: "@traveldiary",
+    time: "30m",
+    text: "Enjoying the cherry blossoms on this beautiful street! #sakura",
+    // Ensure you named the file post2.jpg in assets/images
+    image: require("../assets/images/post2.jpg"),
+    comments: "210",
+    reposts: "98",
+    likes: "4.1K",
+    views: "1.2M",
   },
 ];
