@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
 
-export default function DetailsScreen() {
+export default function MessagesScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Post Details</Text>
-      <Text style={styles.sub}>Opened from Home.</Text>
+      <Text style={styles.title}>Messages</Text>
+      <Text style={styles.sub}>Chat screen.</Text>
     </View>
   );
 }
